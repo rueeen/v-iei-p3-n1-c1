@@ -1,8 +1,12 @@
-pies = float(input('Ingrese pies a convertir:\n'))
-constante = 0.3048
+nombre = input('Ingrese su nombre:\n')
+apellido = input('Ingrese su apellid:\n')
 
-metros = pies * constante
+# concatenando
+correo = nombre + '.' + apellido + '@correo.cl'
+print(f'El correo es: {correo}')
+print(f'El correo es: {nombre + '.' + apellido + '@correo.cl'}')
+# utilizando directamente print
+print(f'El correo es: {nombre}.{apellido}@correo.cl')
 
-print(f'Los {pies} pies a metros son: {metros}')# tiene muchos decimales a veces\
-# aca utilizaremos round(valor a redondear, la cantidad de decimales)
-print(f'Los {pies} pies a metros son: {round(metros, 2)}')
+print(nombre, '.', apellido, '@correo.cl') # NO SIRVE
+print(nombre, '.', apellido, '@correo.cl', sep='') # SI SIRVE
