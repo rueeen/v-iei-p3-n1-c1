@@ -17,7 +17,7 @@ while True:
     
     if opcion == '1':
         print('==== Agregar invitado =====')
-        nombre = input('Ingrese nombre invitado:\n')
+        nombre = input('Ingrese nombre invitado:\n').capitalize()
         invitados.append(nombre)
         print(f'Se agrego a {nombre} a la lista!')
         
@@ -30,12 +30,28 @@ while True:
         
     elif opcion == '3':
         print('==== Modificar invitados =====')
-        
+        nombre = input('Ingrese nombre a cambiar:\n').capitalize() # maria LAS PETUNIAS -> Maria Las Petunias
+        if nombre in invitados: # True si nombre existe
+            nuevo_nombre = input('Ingrese nuevo nombre:\n').capitalize()
+            # Modificando lista
+            invitados[invitados.index(nombre)] = nuevo_nombre # Metodo index devuelve el indice de un elemeto EJ: lst = [ 'a', 'b', 'c' ]  -> lst.index('b') -> 1
+            print('Se ha modificado el nombre de invitado')
+        else:
+            print('Invitado no existe')
+                    
     elif opcion == '4':
         print('==== Eliminar invitados =====')
+        nombre = input('Ingrese nombre a eliminar:\n').capitalize()
+        if nombre in invitados:
+            invitados.remove(nombre)
+            print(f'Se elimino el invitado {nombre}')
+        else:
+            print('No se encontro al invitado')
         
     elif opcion == '0':
         print('==== Salir =====')
-        
+        print('Saliendo del sistema...')
+        break
+
     else:
         print('Opcion ingresada no valida')
