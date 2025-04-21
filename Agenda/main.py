@@ -1,0 +1,80 @@
+# import
+import os # Importar una libreria para manipular el SO (sistema operativo)
+
+# funciones
+def buscar_contacto(nombre, apellido):
+    # [ {}, {}, {} ]
+    for contacto in agenda: # contacto = {'nombre':'Perico', 'apellido':'',....}
+        if contacto['nombre'] == nombre and contacto['apellido'] == apellido:
+            # contacto encontrado
+            return contacto # {'nombre':'Perico', 'apellido':'Los palotes',....}
+    return None
+
+#codigo
+# Nuestros contactos tendran nombre, apellido, numero y si son favoritos
+# Creamos lista antes de ciclo para que no se resetee
+agenda = [] # Una lista vacia
+# Menu de acciones
+while True:
+    # Limpiar pantalla
+    os.system('cls')
+    print('==== Menu de opciones ====')
+    print('1. Agregar contacto    C')
+    print('2. Mostrar contactos   R')
+    print('3. Modificar contacto  U')
+    print('4. Eliminar contacto   D')
+    print('0. Salir')
+    
+    opcion = input('Ingrese opcion:\n')
+    # Limpiar pantalla
+    os.system('cls')
+    
+    if opcion == '1':
+        print('==== Agregar contacto ====')
+        # Datos de entrada
+        nombre = input('Ingrese nombre contacto:\n').capitalize()
+        apellido = input('Ingrese apellido contacto:\n').capitalize()
+        
+        # Verificacion
+        resultado = buscar_contacto(nombre, apellido) # Retorna un contacto {} o None
+        
+        if resultado is not None:
+            # Contacto existe
+            print('Contacto ya esta registrado')
+            input('Presione enter para continuar...') # Para que alcanzar a leer el mensaje
+            continue
+        
+        numero = int(input('Ingrese numero contacto:\n'))
+        # Este lo revisaremos de la siguiente forma
+        favorito = input('Ingrese si es favorito:\n').lower()
+        if favorito == 'si':
+            favorito = True
+        else:
+            favorito = False
+        persona = {
+            'nombre': nombre,
+            'apellido':apellido,
+            'numero':numero,
+            'favorito':favorito
+            }        
+        agenda.append(persona)
+        print('Contacto agregado exitosamente!')
+        
+    elif opcion == '2':
+        print('==== Mostrar contactos ====')
+        if len(agenda) == 0:
+            print('No hay contactos')
+        else: 
+            # agenda = [ {'nombre': '', 'apellido': '', 'numero': 0, 'favorito':True}, {...}, {...}]
+            for c in agenda: # c = {'nombre': '', 'apellido': '', 'numero': 0, 'favorito':True}
+                print(f'Nombre: {c["nombre"]} {c["apellido"]}')
+                print(f'Numero: {c["numero"]}')
+                print(f'Favorito: {c["favorito"]}')
+                print('----------------------------------------------')
+    elif opcion == '3':
+        print('==== Modificar contacto ====')
+        # nombre
+        # apellido
+        # numero
+
+    input('Presione enter para continuar...')
