@@ -23,6 +23,8 @@ while True:
     print('2. Mostrar contactos   R')
     print('3. Modificar contacto  U')
     print('4. Eliminar contacto   D')
+    # 5. Cambiar contacto a favorito Boolean
+    # 6. Eliminar contactos no favoritos
     print('0. Salir')
     
     opcion = input('Ingrese opcion:\n')
@@ -35,6 +37,8 @@ while True:
         nombre = input('Ingrese nombre contacto:\n').capitalize()
         apellido = input('Ingrese apellido contacto:\n').capitalize()
         
+        # Agregar verificacion para que nombre y apellido no sean vacios ''
+        
         # Verificacion
         resultado = buscar_contacto(nombre, apellido) # Retorna un contacto {} o None
         
@@ -45,6 +49,9 @@ while True:
             continue
         
         numero = int(input('Ingrese numero contacto:\n'))
+        
+        # Verificar que numero no sea vacio y que tenga 8 numeros
+        
         # Este lo revisaremos de la siguiente forma
         favorito = input('Ingrese si es favorito:\n').lower()
         if favorito == 'si':
@@ -69,13 +76,13 @@ while True:
             for c in agenda: # c = {'nombre': '', 'apellido': '', 'numero': 0, 'favorito':True}
                 print(f'Nombre: {c["nombre"]} {c["apellido"]}')
                 print(f'Numero: {c["numero"]}')
-                print(f'Favorito: {c["favorito"]}')
+                print(f'Favorito: {c["favorito"]}') # Mostrar si o no en vez de True o False
                 print('----------------------------------------------')
     elif opcion == '3':
         print('==== Modificar contacto ====')
+        # Agregar editar
         # nombre
         # apellido
-        # numero
         # TAREA MODIFICAR NOMBRE Y APELLIDO
         nombre = input('Ingrese nombre a buscar:\n').capitalize()
         apellido = input('Ingrese apellido a buscar:\n').capitalize()
@@ -83,6 +90,9 @@ while True:
         if resultado is not None:
             # Lo encontre
             nuevo_numero = int(input('Ingrese nuevo numero del contacto:\n'))
+            
+            # Verificar que numero no sea vacio y que tenga 8 numeros
+            
             resultado['numero'] = nuevo_numero
             print(f'Se ha cambiado numero del contacto {nombre} {apellido}')
         else:
@@ -106,3 +116,5 @@ while True:
         print('Opcion ingresda no valida...')
 
     input('Presione enter para continuar...')
+    
+# TAREA HASTA DOMINGO POR 1 punto
