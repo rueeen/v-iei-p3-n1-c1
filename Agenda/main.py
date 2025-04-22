@@ -76,5 +76,16 @@ while True:
         # nombre
         # apellido
         # numero
+        # TAREA MODIFICAR NOMBRE Y APELLIDO
+        nombre = input('Ingrese nombre a buscar:\n').capitalize()
+        apellido = input('Ingrese apellido a buscar:\n').capitalize()
+        resultado = buscar_contacto(nombre, apellido) # resultado = {'nombre':'', 'apellido':'', 'numero':0, 'favorito':True} o None
+        if resultado is not None:
+            # Lo encontre
+            nuevo_numero = int(input('Ingrese nuevo numero del contacto:\n'))
+            resultado['numero'] = nuevo_numero
+            print(f'Se ha cambiado numero del contacto {nombre} {apellido}')
+        else:
+            print('Contacto no encontrado')
 
     input('Presione enter para continuar...')
