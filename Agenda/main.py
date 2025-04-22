@@ -88,4 +88,21 @@ while True:
         else:
             print('Contacto no encontrado')
 
+    elif opcion == '4':
+        print('==== Eliminar contacto ====')
+        nombre = input('Ingrese nombre a eliminar:\n')
+        apellido = input('Ingrese apellido a eliminar:\n')
+        resultado = buscar_contacto(nombre, apellido)
+        if resultado is not None:
+            # Lo encontre
+            agenda.remove(resultado)
+            print('Contacto eliminado!')
+        else:
+            print('No se encontro contacto')
+    elif opcion == '0':
+        print('Saliendo programa...')
+        break
+    else:
+        print('Opcion ingresda no valida...')
+
     input('Presione enter para continuar...')
