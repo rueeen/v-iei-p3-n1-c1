@@ -47,9 +47,12 @@ while True:
             print('Contacto ya esta registrado')
             input('Presione enter para continuar...') # Para que alcanzar a leer el mensaje
             continue
-        
-        numero = int(input('Ingrese numero contacto:\n'))
-        
+        try:
+            numero = int(input('Ingrese numero contacto:\n'))
+        except:
+            print('El numero ingresado debe ser numerico')
+            input('Presione enter para continuar...')
+            continue        
         # Verificar que numero no sea vacio y que tenga 8 numeros
         
         # Este lo revisaremos de la siguiente forma
